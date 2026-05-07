@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title> R Kruthik Raj | Personal Portfolio</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:'Orbitron',sans-serif;
+    background:#000;
+    color:#00ff88;
+    overflow-x:hidden;
+}
+
+/* PARTICLES BACKGROUND */
+
+#particles-js{
+    position:fixed;
+    width:100%;
+    height:100%;
+    top:0;
+    left:0;
+    z-index:-2;
+
+    background:
+    radial-gradient(circle at top,#031b0f,#000000);
+}
+
+/* GLOW EFFECTS */
+
+.glow1,
+.glow2{
+    position:fixed;
+    border-radius:50%;
+    filter:blur(100px);
+    z-index:-1;
+}
+
+.glow1{
+    width:300px;
+    height:300px;
+    background:#00ff8855;
+    top:10%;
+    left:5%;
+}
+
+.glow2{
+    width:350px;
+    height:350px;
+    background:#00ff8833;
+    bottom:10%;
+    right:5%;
+}
+
+/* NAVBAR */
+
+nav{
+    position:sticky;
+    top:0;
+    z-index:1000;
+
+    background:rgba(0,0,0,0.7);
+
+    backdrop-filter:blur(8px);
+
+    border-bottom:1px solid #00ff88;
+
+    padding:18px;
+    text-align:center;
+}
+
+nav a{
+    color:#00ff88;
+    text-decoration:none;
+    margin:15px;
+    font-size:15px;
+    transition:0.3s;
+}
+
+nav a:hover{
+    color:white;
+    text-shadow:0 0 10px #00ff88;
+}
+
+/* HERO SECTION */
+
+header{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    padding:20px;
+}
+
+.hero h1{
+    font-size:75px;
+
+    text-shadow:
+    0 0 10px #00ff88,
+    0 0 30px #00ff88;
+}
+
+.hero p{
+    margin-top:15px;
+    font-size:20px;
+    color:#c8ffe2;
+}
+
+.hero button{
+    margin-top:30px;
+    padding:15px 35px;
+
+    background:transparent;
+
+    border:2px solid #00ff88;
+
+    color:#00ff88;
+
+    border-radius:10px;
+
+    cursor:pointer;
+
+    transition:0.4s;
+
+    font-family:'Orbitron',sans-serif;
+}
+
+.hero button:hover{
+    background:#00ff88;
+    color:black;
+
+    box-shadow:0 0 20px #00ff88;
+}
+
+/* CONTAINER */
+
+.container{
+    width:90%;
+    max-width:1100px;
+    margin:auto;
+}
+
+/* CARDS */
+
+.card{
+    margin-top:30px;
+
+    background:rgba(0,255,136,0.05);
+
+    border:1px solid rgba(0,255,136,0.3);
+
+    backdrop-filter:blur(12px);
+
+    border-radius:20px;
+
+    padding:30px;
+
+    box-shadow:
+    0 0 20px rgba(0,255,136,0.15);
+
+    transition:0.4s;
+}
+
+.card:hover{
+    transform:translateY(-8px);
+
+    box-shadow:
+    0 0 30px rgba(0,255,136,0.5);
+}
+
+h2{
+    margin-bottom:20px;
+    color:#00ff88;
+
+    text-shadow:
+    0 0 10px #00ff88;
+}
+
+/* ABOUT */
+
+.about{
+    display:grid;
+    grid-template-columns:1fr 250px;
+    gap:30px;
+    align-items:center;
+}
+
+.about img{
+    width:100%;
+    border-radius:15px;
+
+    border:2px solid #00ff88;
+
+    transition:0.4s;
+}
+
+.about img:hover{
+    transform:scale(1.05);
+
+    box-shadow:0 0 20px #00ff88;
+}
+
+/* SKILLS */
+
+.skills{
+    display:flex;
+    flex-wrap:wrap;
+    gap:15px;
+}
+
+.skill{
+    padding:12px 20px;
+
+    border:1px solid #00ff88;
+
+    border-radius:30px;
+
+    transition:0.3s;
+}
+
+.skill:hover{
+    background:#00ff88;
+    color:black;
+
+    box-shadow:0 0 15px #00ff88;
+}
+
+/* TIMELINE */
+
+.timeline{
+    border-left:3px solid #00ff88;
+    padding-left:20px;
+}
+
+.timeline div{
+    margin-bottom:25px;
+}
+
+
+
+/* CONTACT */
+
+.contact p{
+    margin:10px 0;
+}
+
+/* FOOTER */
+
+footer{
+    margin-top:40px;
+
+    padding:20px;
+
+    text-align:center;
+
+    border-top:1px solid #00ff88;
+
+    background:rgba(0,0,0,0.6);
+}
+
+/* RESPONSIVE */
+
+@media(max-width:768px){
+
+    .hero h1{
+        font-size:45px;
+    }
+
+    .hero p{
+        font-size:16px;
+    }
+
+    nav a{
+        display:block;
+        margin:10px;
+    }
+
+    .about{
+        grid-template-columns:1fr;
+    }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<div id="particles-js"></div>
+
+<div class="glow1"></div>
+<div class="glow2"></div>
+
+<!-- NAVIGATION -->
+
+<nav>
+
+    <a href="#about">About</a>
+    <a href="#skills">Skills</a>
+    <a href="#achievements">Achievements</a>
+    <a href="#blog">Blog</a>
+    <a href="#contact">Contact</a>
+
+</nav>
+
+<!-- HERO -->
+
+<header>
+
+    <div class="hero">
+
+        <h1>R KRUTHIK RAJ</h1>
+
+        <p>
+            BE Student • AI Enthusiast • Problem Solver • Web Developer
+        </p>
+
+        <button onclick="document.getElementById('about').scrollIntoView();">
+            ACCESS PORTFOLIO
+        </button>
+
+    </div>
+
+</header>
+
+<!-- MAIN CONTENT -->
+
+<div class="container">
+
+    <!-- ABOUT -->
+
+    <section class="card" id="about">
+
+        <h2>ABOUT ME</h2>
+
+        <div class="about">
+
+            <div>
+
+                <p>
+                    Hello!<br>
+                    I am Kruthik Raj, BE student at Bangalore Institute of Technology.
+                <br>
+                    I am passionate about Artificial Intelligence, Chip Desine ,
+                    and Web Development.
+                <br>
+                <br>
+                </p>
+
+                <br>
+
+                <p><b>Name:</b> R Kruthik Raj</p>
+                <br>
+                <p><b>Education:</b> Bachelor of Engineering</p>
+                <br>
+                <p><b>Branch:</b> Electronics and communication Engineering </p>
+                <br>
+                <p><b>College:</b> Bangalore Institute of Technology</p>
+                <br>
+                <p><b>Email:</b> kruthikkruthik601@gmail.com </p>
+
+            </div>
+
+            <div>
+
+                <img src="photo.jpg" alt="Profile Photo">
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- SKILLS -->
+
+    <section class="card" id="skills">
+
+        <h2>SKILLS</h2>
+
+        <div class="skills">
+
+            <div class="skill"> • Basic HTML</div>
+            <div class="skill"> • Basic Python</div>
+            <br>
+            <div class="skill"> • C Programming</div>
+            <div class="skill"> • AI Tools</div>
+            <br>
+            <div class="skill"> • Communication</div>
+            <div class="skill"> • Leadership</div>
+            <br>
+            <div class="skill"> • problem solving</div>
+
+        </div>
+
+    </section>
+
+    <!-- ACHIEVEMENTS -->
+
+    <section class="card" id="achievements">
+
+        <h2>ACHIEVEMENTS</h2>
+
+        <div class="timeline">
+
+            <div>
+                <h3>Technical Workshops</h3>
+                <p>Participated in coding workshops and technical seminars.</p>
+            </div>
+
+            <div>
+                <h3> Projects </h3>
+                <p> • Created beginner-level projects using HTML, CSS, and programming concepts.</p>
+                <p> • also made a mini project using BJT transister,Logic Gates.</p>
+                <p> • Smart streetlight that adjest brightness based on movement.</p>
+
+            </div>
+
+            <div>
+                <h3>Hackathons</h3>
+                <p>Explored innovation and problem-solving through technical events in college level.</p>
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- BLOG -->
+
+    <section class="card" id="blog">
+
+        <h2>INTERESTS & HOBBIES</h2>
+
+        <p>
+           • I enjoy learning futuristic technologies
+           <br>
+           • Drawing
+           <br>
+           • Problem solving
+           <br>
+           • Pc gaming
+           <br>
+           • exploring modern software tools
+        </p>
+
+    </section>
+
+    <!-- CONTACT -->
+
+    <section class="card contact" id="contact">
+
+        <h2>CONTACT ME </h2>
+
+        <p><b>Email:</b> kruthikkruthik601@gmail.com </p>
+        <p><b>Phone:</b> +91 8660453844 </p>
+        <p><b>LinkedIn:</b> https://www.linkedin.com/in/kruthik-raj-72870a397?utm_source=share_via&utm_content=profile&utm_medium=member_android</p>
+        <p><b>GitHub:</b> https://github.com/kruthik012 </p>
+
+    </section>
+
+</div>
+
+<!-- FOOTER -->
+
+<footer>
+
+    <p>
+        © 2026 KRUTHIK RAJ |PERSONAL PORTFOLIO
+    </p>
+
+</footer>
+
+<!-- PARTICLES JS -->
+
+<script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+
+<script>
+
+particlesJS("particles-js", {
+
+  "particles": {
+
+    "number": {
+      "value": 110
+    },
+
+    "color": {
+      "value": "#00ff88"
+    },
+
+    "shape": {
+      "type": "circle"
+    },
+
+    "opacity": {
+      "value": 0.5
+    },
+
+    "size": {
+      "value": 3
+    },
+
+    "line_linked": {
+      "enable": true,
+      "distance": 140,
+      "color": "#00ff88",
+      "opacity": 0.4,
+      "width": 1
+    },
+
+    "move": {
+      "enable": true,
+      "speed": 2
+    }
+
+  },
+
+  "interactivity": {
+
+    "events": {
+
+      "onhover": {
+        "enable": true,
+        "mode": "grab"
+      },
+
+      "onclick": {
+        "enable": true,
+        "mode": "push"
+      }
+
+    }
+
+  },
+
+  "retina_detect": true
+
+});
+
+</script>
+
+</body>
+</html>
